@@ -1,0 +1,17 @@
+/* Prefered Specs:
+//
+// Add background to all pages
+// Style your pages' links, colours, and fonts. */
+
+body {
+    background-color: bisque;
+}
+
+a {
+    color: blue;
+    font-family: "Comic Sans MS";
+}
+
+table,th,td {
+    border: 1px solid black;
+}

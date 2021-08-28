@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!---
+    full name (string): cannot be empty
+    doctor (ObjectID): _id of the patient's doctor
+    age (number): a number between 0 and 120
+    data of visit (date): default to the current date
+    case description (string): a string with at least 10 characters
+    --->
+
+<h3>The patient list is:
+    <table>
+        <tr>
+            <th>Full Name</th>
+            <th>Doctor ID</th>
+            <th>Age</th>
+            <th>Date of Visit</th>
+            <th>Description</th>
+        </tr>
+        <% for ( let i =0; i< patientDB.length;i++){ %>
+        <tr>
+            <td>
+                <%= patientDB[i].fullName%>
+            </td>
+            <td>
+                <%= patientDB[i].doctor %>
+            </td>
+            <td>
+                <%= patientDB[i].age %>
+            </td>
+            <td>
+                <%= patientDB[i].dov %>
+            </td>
+            <td>
+                <%= patientDB[i].desc %>
+            </td>
+        </tr>
+        <% }%>
+    </table>
+</h3>
+</body>
+</html>

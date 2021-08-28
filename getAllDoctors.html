@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!---
+    full name: an object has
+        first name: cannot be empty
+        last name
+    date of birth (date)
+    Address: Object has
+        State: min 2, max 3 characters
+        Suburb
+        Street
+        Unit
+    numPatients: a positive number represents the number of patients a doctor has seen so far
+    --->
+
+    <h3>The doctor list is:
+        <table>
+            <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Date of Birth</th>
+                <th>State</th>
+                <th>Suburb</th>
+                <th>Street</th>
+                <th>Unit</th>
+                <th>Number of Patients</th>
+            </tr>
+            <% for ( let i =0; i< doctorDB.length;i++){ %>
+            <tr>
+                <td>
+                    <%= doctorDB[i].fullName.firstName%>
+                </td>
+                <td>
+                    <%= doctorDB[i].fullName.lastName %>
+                </td>
+                <td>
+                    <%= doctorDB[i].dob %>
+                </td>
+                <td>
+                    <%= doctorDB[i].address.state %>
+                </td>
+                <td>
+                    <%= doctorDB[i].address.suburb %>
+                </td>
+                <td>
+                    <%= doctorDB[i].address.street %>
+                </td>
+                <td>
+                    <%= doctorDB[i].address.unit %>
+                </td>
+                <td>
+                    <%= doctorDB[i].numPatients %>
+                </td>
+            </tr>
+            <% }%>
+        </table>
+    </h3>
+
+</body>
+</html>

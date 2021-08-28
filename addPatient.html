@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!---
+    full name (string): cannot be empty
+    doctor (ObjectID): _id of the patient's doctor
+    age (number): a number between 0 and 120
+    data of visit (date): default to the current date
+    case description (string): a string with at least 10 characters
+    --->
+
+    <h1>Welcome to the add new patient page</h1>
+    <form action="/addpatient" method="POST">
+        Full Name:
+        <input type="text" name="fullName" /> </br>
+        Doctor ID:
+        <input type="text" name="docID" /> </br>
+        Age:
+        <input type="number" name="age" /> </br>
+        Date of visit:
+        <input type="date" name="dov" /> </br>
+        Description:
+        <input type="text" name="desc" /> </br>
+        <button>Submit</button>
+    </form>
+
+    <p>
+        <a href="/">Home</a>
+    </p>
+
+</body>
+</html>

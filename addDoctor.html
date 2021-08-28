@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!---
+    full name: an object has
+        first name: cannot be empty
+        last name
+    date of birth (date)
+    Address: Object has
+        State: min 2, max 3 characters
+        Suburb
+        Street
+        Unit
+    numPatients: a positive number represents the number of patients a doctor has seen so far
+    --->
+
+    <h1>Welcome to the add new doctor page</h1>
+    <form action="/adddoctor" method="POST">
+        First Name:
+        <input type="text" name="firstName" /> </br>
+        Last Name:
+        <input type="text" name="lastName" /> </br>
+        Date of Birth:
+        <input type="date" name="dob" /> </br>
+        State:
+        <input type="text" name="state" /> </br>
+        Suburb:
+        <input type="text" name="suburb" /> </br>
+        Street:
+        <input type="text" name="street" /> </br>
+        Unit:
+        <input type="text" name="unit" /> </br>
+        Number of patients:
+        <input type="text" name="numPatient" /> </br>
+        <button>Submit</button>
+    </form>
+
+    <p>
+        <a href="/">Home</a>
+    </p>
+</body>
+</html>
