@@ -190,13 +190,15 @@ app.post("/updatedoctor", function (req, res) {
 // redirect the client to the get all patients page after the insert, update and delete operations.
     res.redirect('/getAllPatients');
 });
-// Invalid Data: if an error occurs, redirect the user to this page.
-app.use(function (req, res){
-    res.sendFile('/Users/ethanfang/Documents/Year2/FIT2095/Week6/invalidData.html');
-});
+
 
 app.get("/", function (req, res) {
     res.sendFile(__dirname + "/home.html");
+});
+
+// Invalid Data: if an error occurs, redirect the user to this page.
+app.use(function (req, res){
+    res.sendFile(__dirname + '/invalidData.html');
 });
 
 // Deploy your application to a VM in your GCP account.
