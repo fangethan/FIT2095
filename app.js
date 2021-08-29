@@ -6,7 +6,7 @@ app.engine("html", ejs.renderFile);
 app.set("view engine", "html");
 app.use(express.urlencoded({ extended: false }));
 // change the background of all pages using a CSS file
-app.use(express.static('/Users/ethanfang/Documents/Year2/FIT2095/Week6'));
+app.use(express.static(__dirname));
 
 app.listen(8080);
 console.log('Server running at http://localhost:8080/');
