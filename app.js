@@ -192,7 +192,7 @@ app.post("/updatedoctor", function (req, res) {
 });
 // Invalid Data: if an error occurs, redirect the user to this page.
 app.use(function (req, res){
-    res.sendFile('/Users/ethanfang/Documents/Year2/FIT2095/Week4/invalidData.html');
+    res.sendFile('/Users/ethanfang/Documents/Year2/FIT2095/Week6/invalidData.html');
 });
 
 app.get("/", function (req, res) {
