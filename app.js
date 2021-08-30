@@ -18,7 +18,10 @@ var mongoose = require('mongoose');
 
 // Each Doctor has the following fields (Doctor Schema):
 var doctorSchema = mongoose.Schema({
-
+    id: {
+        type: mongoose.Schema.Types.ObjectId,
+        auto: true,
+    },
 // full name: an object has
 // first name: cannot be empty
 // last name
@@ -56,7 +59,10 @@ const Doctor = mongoose.model('Doctor', doctorSchema);
 
 // Each Patient has the following fields (Patient Schema):
 var patientSchema = mongoose.Schema({
-    // _id: mongoose.Schema.Types.ObjectId,
+    id: {
+        type: mongoose.Schema.Types.ObjectId,
+        auto: true,
+    },
     // full name (string): cannot be empty
     fullName: {
         type: String,
