@@ -18,6 +18,7 @@ var mongoose = require('mongoose');
 
 // Each Doctor has the following fields (Doctor Schema):
 var doctorSchema = mongoose.Schema({
+
 // full name: an object has
 // first name: cannot be empty
 // last name
@@ -143,9 +144,13 @@ app.post("/addpatient", function (req, res) {
         fullName: req.body.fullName,
         doctor: req.body.docID,
         age: req.body.age,
-        dov: req.body.dov,
         desc: req.body.desc
     });
+
+    // default value to work
+    if (req.body.dov) {
+        newPatient.dov = req.body.dov;
+    }
 
     newPatient.save(function (err){
         if (err) throw err;

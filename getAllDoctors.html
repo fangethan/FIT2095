@@ -19,7 +19,8 @@
     numPatients: a positive number represents the number of patients a doctor has seen so far
     --->
 
-    <h3>The doctor list is:
+    <h3>The doctor list is:</h3>
+    <h4>
         <table>
             <tr>
                 <th>First Name</th>
@@ -30,6 +31,7 @@
                 <th>Street</th>
                 <th>Unit</th>
                 <th>Number of Patients</th>
+                <th>ID</th>
             </tr>
             <% for ( let i =0; i< doctorDB.length;i++){ %>
             <tr>
@@ -57,10 +59,17 @@
                 <td>
                     <%= doctorDB[i].numPatients %>
                 </td>
+                <td>
+                    <%= doctorDB[i].id%>
+                </td>
             </tr>
             <% }%>
         </table>
-    </h3>
+    </h4>
+
+    <p>
+        <a href="/">Home</a>
+    </p>
 
 </body>
 </html>
