@@ -18,7 +18,7 @@ var mongoose = require('mongoose');
 
 // Each Doctor has the following fields (Doctor Schema):
 var doctorSchema = mongoose.Schema({
-    id: {
+    _id: {
         type: mongoose.Schema.Types.ObjectId,
         auto: true,
     },
@@ -55,11 +55,13 @@ var doctorSchema = mongoose.Schema({
         min: 0
     }
 });
+// schema defines structure of document
+// model provides an interface to the db for crud
 const Doctor = mongoose.model('Doctor', doctorSchema);
 
 // Each Patient has the following fields (Patient Schema):
 var patientSchema = mongoose.Schema({
-    id: {
+    _id: {
         type: mongoose.Schema.Types.ObjectId,
         auto: true,
     },
@@ -220,7 +222,6 @@ app.get("/", function (req, res) {
 app.get('*', function(req, res){
     res.sendFile(__dirname + '/invalidData.html');
 });
-
 
 // Deploy your application to a VM in your GCP account.
 
