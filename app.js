@@ -98,7 +98,6 @@ const Patient = mongoose.model('Patient', patientSchema);
 
 // Pages
 
-
 let url='mongodb://localhost:27017/lab6';
 mongoose.connect(url, function (err) {});
 
@@ -124,12 +123,17 @@ app.post("/adddoctor", function (req, res) {
     });
 
     newDoctor.save(function (err){
-        if (err) throw err;
-        console.log('Doctor successfully Added to DB');
+        if (err) {
+            console.log('Error is:');
+            console.log(err.message);
+            res.redirect( '/*');
+        } else {
+            console.log('Doctor successfully Added to DB');
+// redirect the client to the get all patients page after the insert, update and delete operations.
+            res.redirect('/getAllPatients');
+        }
     });
 
-// redirect the client to the get all patients page after the insert, update and delete operations.
-    res.redirect('/getAllPatients');
 });
 
 // Get all doctors page: shows all the doctors in a table format (including the _id field)
@@ -159,11 +163,16 @@ app.post("/addpatient", function (req, res) {
     }
 
     newPatient.save(function (err){
-        if (err) throw err;
-        console.log('Patient successfully Added to DB');
-    });
+        if (err) {
+            console.log('Error is:');
+            console.log(err.message);
+            res.redirect( '/*');
+        } else {
+            console.log('Patient successfully Added to DB');
 // redirect the client to the get all patients page after the insert, update and delete operations.
-    res.redirect('/getAllPatients');
+            res.redirect('/getAllPatients');
+        }
+    });
 });
 
 // Get all patients page. This page must show all the patients in a table format including the first and last names of their doctors.
@@ -208,9 +217,10 @@ app.get("/", function (req, res) {
 });
 
 // Invalid Data: if an error occurs, redirect the user to this page.
-app.use(function (req, res){
+app.get('*', function(req, res){
     res.sendFile(__dirname + '/invalidData.html');
 });
+
 
 // Deploy your application to a VM in your GCP account.
 
