@@ -20,6 +20,8 @@
         <tr>
             <th>Full Name</th>
             <th>Doctor ID</th>
+            <th>Doctor First Name</th>
+            <th>Doctor Last Name</th>
             <th>Age</th>
             <th>Date of Visit</th>
             <th>Description</th>
@@ -30,7 +32,13 @@
                 <%= patientDB[i].fullName%>
             </td>
             <td>
-                <%= patientDB[i].doctor %>
+                <%= patientDB[i].doctor.id %>
+            </td>
+            <td>
+                <%= patientDB[i].doctor.fullName.firstName %>
+            </td>
+            <td>
+                <%= patientDB[i].doctor.fullName.lastName %>
             </td>
             <td>
                 <%= patientDB[i].age %>

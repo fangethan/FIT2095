@@ -145,7 +145,9 @@ app.get("/getalldoctors", function (req, res) {
     });
 });
 
-// Insert new patient page: adds a new patient to the Patient collection. (Hint: Get the Doctor’s _id from the  ‘Get all doctors page’ manually (copy&paste)). The server has to increment (update) the numPatients of that doctor by one.
+// Insert new patient page: adds a new patient to the Patient collection.
+// (Hint: Get the Doctor’s _id from the  ‘Get all doctors page’ manually (copy&paste)).
+// The server has to increment (update) the numPatients of that doctor by one.
 // Insert a new Doctor: adds a new doctor to ‘doctors’ collection
 app.get("/addpatient", function (req, res) {
     res.sendFile(__dirname + "/addPatient.html");
@@ -179,9 +181,13 @@ app.post("/addpatient", function (req, res) {
 
 // Get all patients page. This page must show all the patients in a table format including the first and last names of their doctors.
 app.get("/getallpatients", function (req, res) {
-    Patient.find({}, function (err, docs) {
-        res.render(__dirname + '/getAllPatients.html', {patientDB: docs});
+    Patient.find({}).populate('doctor').exec(function (err, data) {
+        console.log(data);
+        res.render(__dirname + '/getAllPatients.html', {patientDB: data});
     });
+    // Patient.find({}, function (err, docs) {
+    //     res.render(__dirname + '/getAllPatients.html', {patientDB: docs});
+    // });
 
 });
 
