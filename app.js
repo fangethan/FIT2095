@@ -185,9 +185,28 @@ app.get("/getallpatients", function (req, res) {
 
 });
 
+app.get("/deletedoctor", function (req, res) {
+    res.sendFile(__dirname + "/deleteDoctor.html");
+});
+
+// delete doctor
+app.post("/deletedoctor", function (req, res) {
+    Patient.deleteMany({ 'doctor': req.body.id }, function (err, doc) {
+        console.log(doc);
+    });
+    Doctor.deleteOne({ '_id': req.body.id }, function (err, doc) {
+        console.log(doc);
+    });
+
+// redirect the client to the get all patients page after the insert, update and delete operations.
+    res.redirect('/getAllPatients');
+});
+
+
 app.get("/deletepatient", function (req, res) {
     res.sendFile(__dirname + "/deletePatient.html");
 });
+
 // Delete patient by fullName: the page takes a fullName as input and deletes its patient from the DB
 app.post("/deletepatient", function (req, res) {
     Patient.deleteOne({ 'fullName': req.body.fullName }, function (err, doc) {
